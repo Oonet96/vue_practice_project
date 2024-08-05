@@ -2,26 +2,7 @@
 export default {
   name: 'GitRepoView',
   props: {
-    // 문자열 타입의 prop 예시
-    //sampleString: {
-    //  type: String,
-    //  default: ''
-    //},
-    // 숫자 타입의 prop 예시
-    //sampleNumber: {
-    //  type: Number,
-    //  default: 0
-    //},
-    // 배열 타입의 prop 예시
-    //sampleArray: {
-    //  type: Array,
-    //  default: () => []
-    //},
-    // 객체 타입의 prop 예시
-    //sampleObject: {
-    //  type: Object,
-    //  default: () => ({})
-    //}
+    bPreview:Boolean,
   },
   components: {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
@@ -29,6 +10,9 @@ export default {
   data() {
     return {
       // 컴포넌트의 데이터를 초기화합니다.
+      userName:'Oonet',
+      gitSite:'',
+      gitRepo:''
     };
   },
   watch: {
@@ -66,7 +50,23 @@ export default {
 
 <template>
   <div class="">
-    <!-- 내용을 추가하세요 -->
+
+    <div class='title-box'>
+      <h1>
+        {{userName}}
+      </h1>
+    </div>
+
+    <div class='preview-box'>
+      <p>현재 작업하고 있는 project</p>
+      <p>{{`website : ${gitSite}`}}</p>
+      <p>{{`repo : ${gitRepo}`}}</p>
+    </div>
+
+    <div class='detail-box' v-if="!bPreview">
+        123123
+    </div>
+    
   </div>
 </template>
 

@@ -9,7 +9,9 @@ export default {
     
   },
   components: {
-    // 추가적으로 사용할 컴포넌트들을 등록합니다.
+    GitRepoView,
+    BookmarkView,
+    SummaryView
   },
   data() {
     return {
@@ -50,13 +52,35 @@ export default {
 </script>
 
 <template>
-  <div class="">
-    <div id="git_preview_container"></div>
-    <div id="bookmark_container"></div>
-    <div id="summary_list_container"></div>
+  <div class="home-view">
+    <div id="git_preview_container">
+      <GitRepoView :bPreview="true"/>
+    </div>
+    <div id="bookmark_container">
+      <BookmarkView/>
+    </div>
+    <div id="summary_list_container">
+      <SummaryView/>
+    </div>
   </div>
 </template>
 
 <style scoped>
-/* 스타일을 추가하세요 */
+
+  .home-view>div{
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 3px rgba(102, 102, 102,0.3);
+  }
+
+  /* 영역 조절 */
+  #git_preview_container{
+    height: 200px;
+  }
+  #bookmark_container{
+    height: 500px;
+  }
+  #summary_list_container{
+    height: 800px;
+  }
+
 </style>
