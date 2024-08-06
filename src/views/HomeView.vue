@@ -57,21 +57,15 @@ export default {
       <GitRepoView :bPreview="true"/>
     </div>
     <div id="bookmark_container">
-      <BookmarkView/>
+      <BookmarkView :bPreview="true"/>
     </div>
     <div id="summary_list_container">
-      <SummaryView/>
+      <SummaryView :bPreview="true"/>
     </div>
   </div>
 </template>
 
 <style scoped>
-
-  .home-view>div{
-    margin-bottom: 15px;
-    box-shadow: 5px 5px 3px rgba(102, 102, 102,0.3);
-  }
-
   /* 영역 조절 */
   #git_preview_container{
     height: 200px;
@@ -82,5 +76,4 @@ export default {
   #summary_list_container{
     height: 800px;
   }
-
 </style>

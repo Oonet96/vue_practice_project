@@ -1,9 +1,9 @@
 <template>
   <nav>
     <router-link to="/">홈</router-link>
-    <router-link to='/book'>북마크</router-link>
-    <router-link to='/note'>정리노트</router-link>
-    <router-link to='/github'>작업한프로젝트</router-link>
+    <router-link :to="{name:'book', params:{ bPreview:false } }">북마크</router-link>
+    <router-link :to="{name:'note', params:{ bPreview:false } }">정리노트</router-link>
+    <router-link :to="{name:'github', params:{ bPreview:false } }">작업한프로젝트</router-link>
   </nav>
   <router-view id="main_container"/>
 </template>
@@ -18,6 +18,10 @@
 }
 #main_container{
   margin-top: 45px;
+}
+#main_container>div{
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 3px rgba(102, 102, 102,0.3);
 }
 nav {
   z-index : 1;

@@ -13,17 +13,20 @@ const routes = [
   {
     path: '/github',
     name: 'github',
-    component: GitRepoView
+    component: GitRepoView,
+    props:true
   },
   {
     path: '/book',
     name: 'book',
-    component: BookmarkView
+    component: BookmarkView,
+    props:true
   },
   {
     path: '/note',
     name: 'note',
-    component: SummaryView
+    component: SummaryView,
+    props:true
   }
   
 //   {

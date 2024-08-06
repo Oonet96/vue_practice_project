@@ -1,8 +1,8 @@
 <script>
 export default {
-  name: 'BookmarkView',
+  name: 'RepoDetailBoxComponent',
   props: {
-    bPreview:Boolean,
+   repo:Object
   },
   components: {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
@@ -47,7 +47,7 @@ export default {
 
 <template>
   <div class="">
-    <!-- 내용을 추가하세요 -->
+    
   </div>
 </template>
 

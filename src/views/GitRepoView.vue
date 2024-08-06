@@ -1,4 +1,9 @@
 <script>
+//https://api.github.com/users/{userName} - userInfo
+//https://api.github.com/users/{userName}/repos - user public repoList
+//https://api.github.com/repos/{userName}/{repoName} - user public repoInfo
+//https://api.github.com/repos/{userName}/{repoName}/readme -user public repo readme
+import RepoDetailBoxComponent from '@/components/RepoDetailBoxComponent.vue';
 export default {
   name: 'GitRepoView',
   props: {
@@ -6,13 +11,15 @@ export default {
   },
   components: {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
+    RepoDetailBoxComponent
   },
   data() {
     return {
       // 컴포넌트의 데이터를 초기화합니다.
-      userName:'Oonet',
-      gitSite:'',
-      gitRepo:''
+      userName:'Oonet96',
+      curSite:'https://oonet96.github.io/react_movie_project/',
+      curRepo:'https://github.com/Oonet96/react_movie_project',
+      publicRepoList:[{},]
     };
   },
   watch: {
@@ -49,7 +56,7 @@ export default {
 </script>
 
 <template>
-  <div class="">
+  <div class='contents'>
 
     <div class='title-box'>
       <h1>
@@ -59,12 +66,12 @@ export default {
 
     <div class='preview-box'>
       <p>현재 작업하고 있는 project</p>
-      <p>{{`website : ${gitSite}`}}</p>
-      <p>{{`repo : ${gitRepo}`}}</p>
+      <p>website : <a :href="curSite">{{curSite}}</a></p>
+      <p>repo : <a :href="curRepo">{{curRepo}}</a></p>
     </div>
 
     <div class='detail-box' v-if="!bPreview">
-        123123
+        <RepoDetailBoxComponent :v-for="item in publicRepoList" :repo='item'/>
     </div>
     
   </div>
