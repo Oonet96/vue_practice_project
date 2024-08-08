@@ -1,56 +1,83 @@
 <script>
+import { ref } from "vue";
 export default {
-  name: 'BookmarkView',
+  name: "BookmarkView",
   props: {
-    bPreview:Boolean,
+    bPreview: Boolean,
   },
   components: {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
   },
-  data() {
+  setup() {
+    // https://www.google.com/s2/favicons?domain=${item}&sz=${16}px 로 파비콘 받아오기
+    // https://www.google.com/s2/favicons?domain=${item} 이건 파비콘 받아옴 위에는 왜?
+    const m_arrTmpBookmark = ref([
+      { title: "히히", url: "https://recipes4dev.tistory.com/" },
+      {
+        title: "나야 나",
+        url: "http://www.simpleisbest.net/post/2011/04/01/Review-NET-Garbage-Collection.aspx",
+      },
+      { title: "나지롱", url: "https://inpa.tistory.com/" },
+      { title: "나지롱", url: "https://getbootstrap.kr/docs/5.3/examples/" },
+      { title: "나지롱", url: "https://ko.javascript.info/class-inheritance" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+      { title: "나지롱", url: "https://www.youtube.com/" },
+    ]);
+
     return {
-      // 컴포넌트의 데이터를 초기화합니다.
+      m_arrTmpBookmark,
     };
   },
-  watch: {
-    // sample1() {
-    //   console.log('');
-    // }
-    // 데이터를 감시하고 처리할 로직을 작성합니다.
-  },
-  computed: {
-    // sample2() {
-    //   return '';
-    // }
-    // 필요한 계산된 속성을 정의합니다.
-  },
-  methods: {
-    // sample3() {
-    //   return '';
-    // }
-    // 컴포넌트에서 사용할 메서드를 정의합니다.
-  },
-  setup() {
-    // Vue 3 Composition API의 setup 함수에서 추가적인 로직을 처리할 수 있습니다.
-  },
-  created() {
-    // 컴포넌트가 생성될 때 실행될 로직을 작성합니다.
-  },
-  mounted() {
-    // 컴포넌트가 DOM에 마운트된 직후 실행될 로직을 작성합니다.
-  },
-  unmounted() {
-    // 컴포넌트가 파괴되기 전 실행될 로직을 작성합니다.
-  }
 };
 </script>
 
 <template>
-  <div class="">
+  <div class="contents">
     <!-- 내용을 추가하세요 -->
+    <div class="">
+
+      <div>탭목록</div>
+
+      <div class="bookmark-grid-container">
+        <div
+          class="bookmark-box"
+          v-for="(item, index) in m_arrTmpBookmark"
+          :key="index"
+        >
+          <a :href="item.url">
+            <img
+              :src="`https://www.google.com/s2/favicons?domain=${item.url}`"
+              width="40px"
+            />
+            <p>{{ item.title }}</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <style scoped>
 /* 스타일을 추가하세요 */
+.contents a{
+  text-decoration: none;
+}
+.bookmark-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
+}
 </style>

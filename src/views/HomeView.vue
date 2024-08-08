@@ -13,40 +13,9 @@ export default {
     BookmarkView,
     SummaryView
   },
-  data() {
-    return {
-      // 컴포넌트의 데이터를 초기화합니다.
-    };
-  },
-  watch: {
-    // sample1() {
-    //   console.log('');
-    // }
-    // 데이터를 감시하고 처리할 로직을 작성합니다.
-  },
-  computed: {
-    // sample2() {
-    //   return '';
-    // }
-    // 필요한 계산된 속성을 정의합니다.
-  },
-  methods: {
-    // sample3() {
-    //   return '';
-    // }
-    // 컴포넌트에서 사용할 메서드를 정의합니다.
-  },
   setup() {
-    // Vue 3 Composition API의 setup 함수에서 추가적인 로직을 처리할 수 있습니다.
-  },
-  created() {
-    // 컴포넌트가 생성될 때 실행될 로직을 작성합니다.
-  },
-  mounted() {
-    // 컴포넌트가 DOM에 마운트된 직후 실행될 로직을 작성합니다.
-  },
-  unmounted() {
-    // 컴포넌트가 파괴되기 전 실행될 로직을 작성합니다.
+
+
   }
 };
 </script>
@@ -56,10 +25,10 @@ export default {
     <div id="git_preview_container">
       <GitRepoView :bPreview="true"/>
     </div>
-    <div id="bookmark_container">
+    <div id="bookmark_preview_container">
       <BookmarkView :bPreview="true"/>
     </div>
-    <div id="summary_list_container">
+    <div id="summary_preview_container">
       <SummaryView :bPreview="true"/>
     </div>
   </div>
@@ -70,10 +39,10 @@ export default {
   #git_preview_container{
     height: 200px;
   }
-  #bookmark_container{
+  #bookmark_preview_container{
     height: 500px;
   }
-  #summary_list_container{
+  #summary_preview_container{
     height: 800px;
   }
 </style>

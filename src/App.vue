@@ -1,10 +1,10 @@
 <template>
-  <nav>
+  <div id="header_nav_container">
     <router-link to="/">홈</router-link>
     <router-link :to="{name:'book', params:{ bPreview:false } }">북마크</router-link>
     <router-link :to="{name:'note', params:{ bPreview:false } }">정리노트</router-link>
     <router-link :to="{name:'github', params:{ bPreview:false } }">작업한프로젝트</router-link>
-  </nav>
+  </div>
   <router-view id="main_container"/>
 </template>
 
@@ -23,7 +23,7 @@
     margin-bottom: 15px;
     box-shadow: 5px 5px 3px rgba(102, 102, 102,0.3);
 }
-nav {
+#header_nav_container {
   z-index : 1;
   position: fixed;
   width:100%;
@@ -40,16 +40,14 @@ nav {
               0 -6px 16px -6px rgba(0,0,0,0.25);
   border-radius: 5px;
 }
-nav a {
+#header_nav_container a {
   text-decoration: none;
   color : #0008FC;
-  /* text-transform:uppercase; */
   font-size: 12px;
   text-align:center;
   font-weight: 600;
 }
-nav a:not(:last-child){
+#header_nav_container a:not(:last-child){
   margin-right: 10px;
-  /* margin-bottom: 10px; */
 }
 </style>
