@@ -5,6 +5,7 @@
 //https://api.github.com/repos/{userName}/{repoName}/pages - user public repoPages X
 //https://api.github.com/repos/{userName}/{repoName}/readme -user public repo readme
 import {ref} from 'vue';
+import Axios from 'axios'
 import RepoDetailBoxComponent from '@/components/RepoDetailBoxComponent.vue';
 export default {
   name: 'GitRepoView',
@@ -44,6 +45,11 @@ export default {
       }
     ]);
 
+    async function getRepoList(){
+        const res = await Axios.get(`https://api.github.com/users/${m_userName.value}/repos`);
+
+    }
+
 
     return {
       //props
@@ -75,6 +81,7 @@ export default {
     </div>
 
     <div class='detail-box' v-if="!bPreview">
+        <p>Public Repo List</p>
         <RepoDetailBoxComponent v-for="(item,index) in m_tmpPublicRepoList"
          :key="index" :repo='item'/>
     </div>
@@ -85,7 +92,18 @@ export default {
 <style scoped>
 /* 스타일을 추가하세요 */
   .contents>div{
-    padding-left:30px;
+    padding:0 30px;
     text-align: left;
   }
+  .detail-box>div{
+    border: 3px solid;
+    border-radius: 15px;
+    padding-left:10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  .contents>.preview-box, .contents>.detail-box{
+    padding:5px 30px;
+  }
+  
 </style>
